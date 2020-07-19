@@ -3,6 +3,9 @@
 ### MySQL
 
 	docker-compose -f docker-compose.mysql.yml up -d
+    
+[http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
 
 ### Redis
 
