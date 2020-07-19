@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  redis-crawler:
+    image: 'bitnami/redis:5.0'
+    environment:
+      #- REDIS_PASSWORD=password # if you need setting password
+      - ALLOW_EMPTY_PASSWORD=yes # if you need setting password, please comment out
+    hostname: redis
+    ports: 
+      - "6379:6379"
+    volumes:
+      - 'redis:/bitnami/redis/data'
+    restart: always
+    networks:
+        - dev
+        
+networks:
+  dev:
+
+volumes:
+  redis:
