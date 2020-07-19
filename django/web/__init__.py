@@ -1,1 +1,1 @@
-from web import index, config
+from web import index, config, setting

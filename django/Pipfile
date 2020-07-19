@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 web = {editable = true, path = "."}
 pymysql = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"

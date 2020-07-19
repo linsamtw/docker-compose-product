@@ -1,4 +1,5 @@
 import os
+import socket
 from web.config import (
     MYSQL_DB,
     MYSQL_HOST,
@@ -15,15 +16,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'a#&2)m!%!zr22mins&6*u#rv2&6wl_ngm#9s&zmeezbdl4qzuq'
+hostname = socket.gethostname()
+if hostname == "web":
+    DEBUG = False
+else:
+    DEBUG = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
-
+ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

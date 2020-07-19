@@ -7,3 +7,4 @@
 .python-version
 *.egg-info
 db.sqlite3
+*acme.json
