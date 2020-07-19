@@ -2,8 +2,8 @@
 
 A simple setup to deploy your product by docker. 
 * [DB](https://github.com/linsamtw/docker-compose-product/tree/master/db): 
-	* [MySQL](https://github.com/linsamtw/docker-compose-product/tree/master/db#mysql)
-	* [redis](https://github.com/linsamtw/docker-compose-product/tree/master/db#redis)
+	* MySQL
+	* redis
 * [Web](https://github.com/linsamtw/docker-compose-product/tree/master/django): 
 	* django
 	* traefik: 
@@ -11,8 +11,8 @@ A simple setup to deploy your product by docker.
 		* Reverse proxy.
 		* Load balancer, 
 	* nginx: django static files.
-* api: 
-	* [fastapi](https://github.com/linsamtw/docker-compose-product/tree/master/api)
+* [api](https://github.com/linsamtw/docker-compose-product/tree/master/api): 
+	* fastapi
 	
 * [message queue](https://github.com/linsamtw/docker-compose-product/tree/master/message_queue):
 	* rabbitgmq
