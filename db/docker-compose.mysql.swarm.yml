@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:latest
+    ports: 
+      - target: 3306
+        published: 3306
+        mode: host
+    environment:
+      MYSQL_DATABASE: django
+      MYSQL_USER: django
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - mysql:/var/lib/mysql
+    deploy:
+      resources: 
+        limits:
+          cpus: '0.5'
+          memory: 1024M
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      placement:
+        constraints: [node.labels.mysql == true]
+    networks:
+      - web
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    links: 
+      - mysql:mysql
+    ports:
+      - 8080:80
+    environment:
+      MYSQL_USER: django
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      PMA_HOST: mysql
+    deploy:
+      resources: 
+        limits:
+          cpus: '0.5'
+          memory: 1024M
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      placement:
+        constraints: [node.labels.web_phpmyadmin == true]
+    networks:
+      - web
+
+networks:
+  web:
+
+volumes:
+    mysql:

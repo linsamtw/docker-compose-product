@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+
+  rabbitmq:
+    image: 'rabbitmq:3.6-management-alpine'
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      - RABBITMQ_DEFAULT_USER=worker
+      - RABBITMQ_DEFAULT_PASS=worker
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      placement:
+        max_replicas_per_node: 1
+        constraints: [node.labels.rabbitmq == true]
+    networks:
+      - rabbitmq
+
+  flower:  
+    image: mher/flower
+    command: ["flower", "--broker=amqp://worker:worker@rabbitmq", "--port=5555"]  
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      placement:
+        max_replicas_per_node: 1
+        constraints: [node.labels.rabbitmq == true]
+    ports:  
+      - 5555:5555 
+    depends_on:
+      - rabbitmq
+    networks:
+      - rabbitmq
+
+networks:
+  rabbitmq:

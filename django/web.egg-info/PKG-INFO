@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: web
+Version: 1.0.1
+Summary: web
+Home-page: https://github.com/linsamtw
+Author: linsam
+Author-email: samlin266118@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/linsamtw/docker-compose-product
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown

@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  api:
+    image: test:dev
+    ports:
+      - target: 8000
+        published: 80
+        mode: host
+    env_file: .env
+    hostname: api
+    command: pipenv run uvicorn api.main:app --reload --host 0.0.0.0
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: stop-first
+        failure_action: rollback
+      placement:
+        max_replicas_per_node: 1
+        constraints: [node.labels.api == true]
+    restart: always
+    environment:
+      - TZ=Asia/Taipei
+    networks:
+        - api
+
+networks:
+  api:
+    #external: true # if connect exist docker network

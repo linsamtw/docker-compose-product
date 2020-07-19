@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  redis-crawler:
+    image: 'bitnami/redis:5.0'
+    environment:
+      #- REDIS_PASSWORD=password # if you need setting password
+      - ALLOW_EMPTY_PASSWORD=yes # if you need setting password, please comment out
+    hostname: redis
+    ports: 
+      - "6379:6379"
+    volumes:
+      - 'redis:/bitnami/redis/data'
+    deploy:
+      resources: 
+        limits:
+          cpus: '1.50'
+          memory: 3072M
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      placement:
+        constraints: [node.labels.redis == true]
+    restart: always
+    networks:
+        - redis
+        
+networks:
+  redis:
+    #external: true # if connect exist docker network
+    
+volumes:
+  redis:

@@ -1,0 +1,52 @@
+version: "3.3"
+
+services:
+
+  traefik:
+    image: "traefik:v2.2"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG" # if debug
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
+      #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.email=samlin266118@gmail.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.cache
+    image: test:dev
+    container_name: "web"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`test456.servehttp.com`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_static_files
+    volumes:
+      - "./default.conf:/etc/nginx/conf.d/default.conf"
+      - "./your_path/static:/static"
+    restart: always
+    labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.static-http.entrypoints=websecure"
+        - "traefik.http.routers.static-http.rule=Host(`test456.servehttp.com`) && PathPrefix(`/static`)" 
+        - "traefik.http.routers.static-http.tls.certresolver=myresolver"  
+
