@@ -5,8 +5,8 @@
 	- [MySQL](https://github.com/linsamtw/docker-compose-product/tree/master/db#mysql)
 	- [redis](https://github.com/linsamtw/docker-compose-product/tree/master/db#redis)
 - swarm
-	- [MySQL](https://github.com/linsamtw/docker-compose-product/tree/master/db#mysql)
-	- [redis](https://github.com/linsamtw/docker-compose-product/tree/master/db#redis)
+	- [MySQL](https://github.com/linsamtw/docker-compose-product/tree/master/db#mysql-1)
+	- [redis](https://github.com/linsamtw/docker-compose-product/tree/master/db#redis-1)
 
 #### docker compose
 
