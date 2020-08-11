@@ -1,17 +1,21 @@
-version: "3"
+version: "3" # docker-compose.yml version, swarm 可用 3.0 or 3.8, 3.8 是最新版, 有額外功能
 services:
     mysql:
         image: mysql:latest
-        ports: 
-            - "3306:3306"
-        environment:
-            MYSQL_DATABASE: myDb
-            MYSQL_USER: user
-            MYSQL_PASSWORD: test
-            MYSQL_ROOT_PASSWORD: test
+        ports:  # docker publish port 3306 to 3306 (將 docker 內部 ip 3306, 跟外部 3306 做連結)
+          - target: 3306
+            published: 3306
+            mode: host
+        environment: # 環境變數, 設置 db, user, password, root_password
+            MYSQL_DATABASE: django
+            MYSQL_USER: django
+            MYSQL_PASSWORD: password
+            MYSQL_ROOT_PASSWORD: password
         volumes:
             - ./dump:/docker-entrypoint-initdb.d
             - mysql:/var/lib/mysql
+          # share volumes of docker container to outside volume, let data persist
+          # 將 docker container 的 volumes 跟外部 volumes 做連結, 讓資料不會因為, container close or update, 而遺失
         networks:
             - dev
 
@@ -22,9 +26,9 @@ services:
         ports:
             - 8000:80
         environment:
-            MYSQL_USER: user
-            MYSQL_PASSWORD: test
-            MYSQL_ROOT_PASSWORD: test
+          MYSQL_USER: django
+          MYSQL_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: password
         networks:
             - dev
       
