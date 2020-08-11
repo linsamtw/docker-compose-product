@@ -4,8 +4,8 @@ services:
   redis:
     image: 'bitnami/redis:5.0'
     environment:
-      - REDIS_PASSWORD=password # if you need setting password
-      #- ALLOW_EMPTY_PASSWORD=yes # if you need setting password, please comment out
+      #- REDIS_PASSWORD=password # if you need setting password
+      - ALLOW_EMPTY_PASSWORD=yes # if you need setting password, please comment out
     hostname: redis
     ports: 
       - "6379:6379"
