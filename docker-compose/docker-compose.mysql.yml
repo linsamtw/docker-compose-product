@@ -1,4 +1,4 @@
-version: "3" # docker-compose.yml version, swarm 可用 3.0 or 3.8, 3.8 是最新版, 有額外功能
+version: "3" # docker-compose.yml version
 services:
     mysql:
         image: mysql:latest
@@ -14,8 +14,9 @@ services:
         volumes:
             - ./dump:/docker-entrypoint-initdb.d
             - mysql:/var/lib/mysql
-          # share volumes of docker container to outside volume, let data persist
-          # 將 docker container 的 volumes 跟外部 volumes 做連結, 讓資料不會因為, container close or update, 而遺失
+            # share volumes of docker container to outside volume, let data persist
+            # 將 docker container 的 volumes 跟外部 volumes 做連結, 
+            # 讓資料不會因為, container close or update, 而遺失
         networks:
             - dev
 

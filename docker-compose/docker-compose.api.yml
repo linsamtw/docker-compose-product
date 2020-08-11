@@ -3,12 +3,10 @@ services:
   api:
     image: test:dev
     ports:
-      - target: 8000
-        published: 8080
+      - target: 5555
+        published: 5555
         mode: host
-    env_file: .env
     hostname: api
-    command: pipenv run uvicorn api.main:app --reload --host 0.0.0.0
     restart: always
     environment:
       - TZ=Asia/Taipei
