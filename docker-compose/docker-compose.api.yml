@@ -1,10 +1,14 @@
-version: '3.3'
+version: '3.3' # docker-compose.yml version
 services:
   api:
-    image: test:dev
-    ports:
-      - target: 5555
-        published: 5555
+    # build image
+    build:
+      context: .
+      dockerfile: api.cache.Dockerfile
+    image: test_api:dev
+    ports:  # docker publish port 5000 to 5000 (將 docker 內部 ip 5000, 跟外部 5000 做連結)
+      - target: 5000
+        published: 5000
         mode: host
     hostname: api
     restart: always

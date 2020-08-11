@@ -44,27 +44,40 @@ mysql config
 
 ##### rabbitmq
 
-	up: docker-compose -f docker-compose.mysql.yml up
-    down: docker-compose -f docker-compose.mysql.yml down
-    up on background: docker-compose -f docker-compose.mysql.yml up -d
+	up: docker-compose -f docker-compose.rabbitmq.yml up
+    down: docker-compose -f docker-compose.rabbitmq.yml down
+    up on background: docker-compose -f docker-compose.rabbitmq.yml up -d
 
-[http://127.0.0.1:8000/](http://127.0.0.1:8000/) ( `root` / `password` )
+* `flower`: 
+[http://127.0.0.1:5555/](http://127.0.0.1:5555/)
 
-mysql config
+* `rabbitmq web`: 
+[http://127.0.0.1:15672/](http://127.0.0.1:15672/) ( `worker` / `worker` )
+
+`celery` connect `rabbitmq` config
 
 * host: `localhost`
-* port: `3306`
-* root user/password: `root`/`password`
-* other user/password: `django`/`password`
+* port: `5672`
+* user/password: `worker`/`worker`
 
 --------------------------
 
 ##### api
 
---------------------------
+* build docker image
 
-##### web
 
+	make api-latest
+	make api
+    
+* run
+
+
+	up: docker-compose -f docker-compose.api.yml up
+    down: docker-compose -f docker-compose.api.yml down
+    up on background: docker-compose -f docker-compose.api.yml up -d
+
+[http://127.0.0.1:5555/docs](http://127.0.0.1:5555/docs)
 
 
 

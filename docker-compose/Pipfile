@@ -7,6 +7,8 @@ verify_ssl = true
 
 [packages]
 fastapi = "*"
+uvicorn = "*"
+dataclasses = "*"
 
 [requires]
 python_version = "3.7"
