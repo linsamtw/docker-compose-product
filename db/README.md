@@ -11,3 +11,5 @@
 
 	docker-compose -f docker-compose.redis.yml up -d
 
+download [medis](https://github.com/luin/medis)
+![Medis](http://getmedis.com/screen.png)
