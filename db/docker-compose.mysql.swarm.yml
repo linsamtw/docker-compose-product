@@ -1,13 +1,13 @@
-version: "3.8"
+version: "3.0" # docker-compose.yml version, swarm 可用 3.0 or 3.8, 3.8 是最新版, 有額外功能
 
 services:
   mysql:
     image: mysql:latest
-    ports: 
+    ports:  # docker publish port 3306 to 3306 (將 docker 內部 ip 3306, 跟外部 3306 做連結)
       - target: 3306
         published: 3306
         mode: host
-    environment:
+    environment: # 環境變數, 設置 db, user, password, root_password
       MYSQL_DATABASE: django
       MYSQL_USER: django
       MYSQL_PASSWORD: password
@@ -19,11 +19,11 @@ services:
         limits:
           cpus: '0.5'
           memory: 1024M
-      replicas: 1
+      replicas: 1 # deploy one container to support mysql service
       update_config:
         parallelism: 1
         delay: 10s
-      placement:
+      placement: # 用 node label, mysql = ture 的機器, 去啟動 mysql service
         constraints: [node.labels.mysql == true]
     networks:
       - web
@@ -38,7 +38,9 @@ services:
       MYSQL_USER: django
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
-      PMA_HOST: mysql
+      PMA_HOST: mysql 
+      # You can specify MySQL host in the PMA_HOST environment variable. 
+      # You can also use PMA_PORT to specify port of the server in case it's not the default one:
     deploy:
       resources: 
         limits:
