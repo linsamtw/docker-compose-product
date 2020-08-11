@@ -10,7 +10,7 @@
 
 #### docker compose
 
-###### MySQL
+##### MySQL
 
 	up: docker-compose -f docker-compose.mysql.yml up
     down: docker-compose -f docker-compose.mysql.yml down
@@ -26,7 +26,7 @@ mysql config
 * other user/password: `django`/`password`
 
 
-###### Redis
+##### Redis
 
 	up: docker-compose -f docker-compose.redis.yml up
     down: docker-compose -f docker-compose.redis.yml down
