@@ -4,6 +4,7 @@
 - [MySQL](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#mysql)
 - [redis](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#redis)
 - [rabbitmq](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#rabbitmq)
+- celery
 - [api](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#api)
 
 ------------------
