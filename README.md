@@ -10,6 +10,7 @@
 	  - [fastapi](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#api)
 	- message queue
 	  - [rabbitmq](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#rabbitmq)
+	  - celery
 - [swarm](https://github.com/linsamtw/docker-for-product/tree/master/swarm)
 	- db
 	  - MySQL
