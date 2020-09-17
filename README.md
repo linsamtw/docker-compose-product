@@ -1,37 +1,49 @@
+##### api
+
+* build docker image
+
+
+	make api-latest
+	make api
+    
+* run
+
 # docker for product
 
 
 ### Contents
 - [docker-compose](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose)
-	- db
+	- DB
 	  - [MySQL](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#mysql)
 	  - [redis](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#redis)
-	- api
+	- Api
 	  - [fastapi](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#api)
-	- message queue
+	- Crawler
 	  - [rabbitmq](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#rabbitmq)
 	  - celery
 - [swarm](https://github.com/linsamtw/docker-for-product/tree/master/swarm)
-	- db
+	- DB
 	  - MySQL
       - redis
-	- web
+	- Web
       - django
       - traefik
       - nginx
-	- api
+	- Api
 	  - fastapi
-	- message queue
+	- Crawler
 	  - rabbitmq
+	  - celery
 - [swarm & traefik]()
-	- db
+	- DB
 	  - MySQL
       - redis
-	- web
+	- Web
       - django
       - traefik
       - nginx
-	- api
+	- Api
 	  - fastapi
-	- message queue
+	- Crawler
 	  - rabbitmq
+	  - celery
