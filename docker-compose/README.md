@@ -12,8 +12,8 @@
 ##### MySQL
 
 	up: docker-compose -f docker-compose.mysql.yml up
-    down: docker-compose -f docker-compose.mysql.yml down
-    up on background: docker-compose -f docker-compose.mysql.yml up -d
+	down: docker-compose -f docker-compose.mysql.yml down
+	up on background: docker-compose -f docker-compose.mysql.yml up -d
 
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/) ( `root` / `password` )
 ![phpmyadmin](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/phpmyadmin.png)
@@ -30,8 +30,8 @@ mysql config
 ##### Redis
 
 	up: docker-compose -f docker-compose.redis.yml up
-    down: docker-compose -f docker-compose.redis.yml down
-    up on background: docker-compose -f docker-compose.redis.yml up -d
+	down: docker-compose -f docker-compose.redis.yml down
+	up on background: docker-compose -f docker-compose.redis.yml up -d
 
 * host: `localhost`
 * port: `6379`
@@ -46,8 +46,8 @@ mysql config
 ##### rabbitmq
 
 	up: docker-compose -f docker-compose.rabbitmq.yml up
-    down: docker-compose -f docker-compose.rabbitmq.yml down
-    up on background: docker-compose -f docker-compose.rabbitmq.yml up -d
+	down: docker-compose -f docker-compose.rabbitmq.yml down
+	up on background: docker-compose -f docker-compose.rabbitmq.yml up -d
 
 * `flower`: 
 [http://127.0.0.1:5555/](http://127.0.0.1:5555/)
@@ -68,15 +68,16 @@ mysql config
 * build docker image
 
 
-	make api-latest
-	make api
-    
+		make api-latest
+		make api
+
+
 * run
 
 
-	up: docker-compose -f docker-compose.api.yml up
-    down: docker-compose -f docker-compose.api.yml down
-    up on background: docker-compose -f docker-compose.api.yml up -d
+		up: docker-compose -f docker-compose.api.yml up
+		down: docker-compose -f docker-compose.api.yml down
+		up on background: docker-compose -f docker-compose.api.yml up -d
 
 [http://127.0.0.1:5555/docs](http://127.0.0.1:5555/docs)
 ![fastapi](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/fastapi.png)
