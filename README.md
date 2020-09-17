@@ -1,13 +1,3 @@
-##### api
-
-* build docker image
-
-
-	make api-latest
-	make api
-    
-* run
-
 # docker for product
 
 
