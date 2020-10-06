@@ -20,6 +20,7 @@ services:
         
 networks:
   dev:
+    external: true
 
 volumes:
   redis:

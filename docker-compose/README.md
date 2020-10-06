@@ -9,11 +9,18 @@
 
 ------------------
 
+#### create network 
+因為 docker 會建立虛擬 network，為了避免 compose 之間連線問題，先建立 network，docker 再分別 external 進 network
+
+	docker network create dev
+
+------------------
+
 ##### MySQL
 
-	up: docker-compose -f ./db/mysql.yml up
-	down: docker-compose -f ./db/mysql.yml down
-	up on background: docker-compose -f ./db/mysql.yml up -d
+	up: docker-compose -f mysql.yml up
+	down: docker-compose -f mysql.yml down
+	up on background: docker-compose -f mysql.yml up -d
 
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/) ( `root` / `password` )
 ![phpmyadmin](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/image/phpmyadmin.png)
@@ -29,9 +36,9 @@ mysql config
 
 ##### Redis
 
-	up: docker-compose -f ./db/redis.yml up
-	down: docker-compose -f ./db/redis.yml down
-	up on background: docker-compose -f ./db/redis.yml up -d
+	up: docker-compose -f redis.yml up
+	down: docker-compose -f redis.yml down
+	up on background: docker-compose -f redis.yml up -d
 
 * host: `localhost`
 * port: `6379`
@@ -45,9 +52,9 @@ mysql config
 
 ##### rabbitmq
 
-	up: docker-compose -f docker-compose.rabbitmq.yml up
-	down: docker-compose -f docker-compose.rabbitmq.yml down
-	up on background: docker-compose -f docker-compose.rabbitmq.yml up -d
+	up: docker-compose -f rabbitmq.yml up
+	down: docker-compose -f rabbitmq.yml down
+	up on background: docker-compose -f rabbitmq.yml up -d
 
 * `flower`: 
 [http://127.0.0.1:5555/](http://127.0.0.1:5555/)
@@ -75,9 +82,9 @@ mysql config
 * run
 
 
-		up: docker-compose -f docker-compose.api.yml up
-		down: docker-compose -f docker-compose.api.yml down
-		up on background: docker-compose -f docker-compose.api.yml up -d
+		up: docker-compose -f ./api/docker-compose.api.yml up
+		down: docker-compose -f ./api/docker-compose.api.yml down
+		up on background: docker-compose -f ./api/docker-compose.api.yml up -d
 
 [http://127.0.0.1:5555/docs](http://127.0.0.1:5555/docs)
 ![fastapi](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/image/fastapi.png)
