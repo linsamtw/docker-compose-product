@@ -16,7 +16,7 @@
 	up on background: docker-compose -f ./db/mysql.yml up -d
 
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/) ( `root` / `password` )
-![phpmyadmin](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/phpmyadmin.png)
+![phpmyadmin](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/image/phpmyadmin.png)
 
 mysql config
 
@@ -80,6 +80,6 @@ mysql config
 		up on background: docker-compose -f docker-compose.api.yml up -d
 
 [http://127.0.0.1:5555/docs](http://127.0.0.1:5555/docs)
-![fastapi](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/fastapi.png)
+![fastapi](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/image/fastapi.png)
 
 
