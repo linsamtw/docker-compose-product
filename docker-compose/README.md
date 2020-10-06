@@ -11,9 +11,9 @@
 
 ##### MySQL
 
-	up: docker-compose -f docker-compose.mysql.yml up
-	down: docker-compose -f docker-compose.mysql.yml down
-	up on background: docker-compose -f docker-compose.mysql.yml up -d
+	up: docker-compose -f ./db/mysql.yml up
+	down: docker-compose -f ./db/mysql.yml down
+	up on background: docker-compose -f ./db/mysql.yml up -d
 
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/) ( `root` / `password` )
 ![phpmyadmin](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/phpmyadmin.png)
@@ -29,9 +29,9 @@ mysql config
 
 ##### Redis
 
-	up: docker-compose -f docker-compose.redis.yml up
-	down: docker-compose -f docker-compose.redis.yml down
-	up on background: docker-compose -f docker-compose.redis.yml up -d
+	up: docker-compose -f ./db/redis.yml up
+	down: docker-compose -f ./db/redis.yml down
+	up on background: docker-compose -f ./db/redis.yml up -d
 
 * host: `localhost`
 * port: `6379`
