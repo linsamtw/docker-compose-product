@@ -86,7 +86,7 @@ mysql config
 		down: docker-compose -f ./api/docker-compose.api.yml down
 		up on background: docker-compose -f ./api/docker-compose.api.yml up -d
 
-[http://127.0.0.1:5555/docs](http://127.0.0.1:5555/docs)
+[http://127.0.0.1:5000/docs](http://127.0.0.1:5000/docs)
 ![fastapi](https://github.com/linsamtw/docker-for-product/blob/master/docker-compose/image/fastapi.png)
 
 
