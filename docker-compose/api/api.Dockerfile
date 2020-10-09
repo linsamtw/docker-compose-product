@@ -3,8 +3,8 @@ FROM continuumio/miniconda3:4.3.27
 RUN apt-get update
 
 RUN mkdir /Project
-COPY . /Project/
-WORKDIR /Project/
+COPY ./api /Project/
+WORKDIR /Project
 
 # install package
 RUN pip install pipenv && \

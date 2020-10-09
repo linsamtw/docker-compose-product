@@ -76,7 +76,7 @@ mysql config
 
 
 		make api-latest
-		make api
+		make api-build
 
 
 * run
