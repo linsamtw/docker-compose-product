@@ -68,6 +68,15 @@ mysql config
 * port: `5672`
 * user/password: `worker`/`worker`
 
+##### run celery worker
+
+	celery -A Worker worker --loglevel=info
+
+##### send task to rabbitmq
+
+	python Producer.py 
+
+
 --------------------------
 
 ##### api
