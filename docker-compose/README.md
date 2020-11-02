@@ -4,7 +4,7 @@
 - [MySQL](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#mysql)
 - [redis](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#redis)
 - [rabbitmq](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#rabbitmq)
-- celery
+- [celery](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#run-celery-worker)
 - [api](https://github.com/linsamtw/docker-for-product/tree/master/docker-compose#api)
 
 ------------------
@@ -16,7 +16,7 @@
 
 ------------------
 
-##### MySQL
+#### MySQL
 
 	up: docker-compose -f mysql.yml up
 	down: docker-compose -f mysql.yml down
@@ -34,7 +34,7 @@ mysql config
 
 ---------------------------
 
-##### Redis
+#### Redis
 
 	up: docker-compose -f redis.yml up
 	down: docker-compose -f redis.yml down
@@ -50,7 +50,7 @@ mysql config
 
 --------------------------
 
-##### rabbitmq
+#### rabbitmq
 
 	up: docker-compose -f rabbitmq.yml up
 	down: docker-compose -f rabbitmq.yml down
@@ -79,7 +79,7 @@ mysql config
 
 --------------------------
 
-##### api
+#### api
 
 * build docker image
 
